@@ -1,0 +1,37 @@
+#wrapper {
+    background: $body-color;
+    color: $body-bg;
+    position: relative;
+}
+
+.sr-only {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.container {
+    max-width: $container-max-width;
+    padding: 0 ($grid-gutter-width/2);
+    margin: 0 auto;
+}
+
+.page-header {
+    background: $gray-600;
+    color: $milky-white;
+    text-align: center;
+    padding: 40px 0;
+
+    h1 {
+        font-size: 5rem;
+    }
+}
+
+.breadcrumbs {
+    @extend %listreset;
+
+    li {
+        display: inline-block;
+        vertical-align: top;
+    }
+}

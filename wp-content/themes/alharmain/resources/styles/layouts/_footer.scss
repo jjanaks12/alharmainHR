@@ -1,0 +1,66 @@
+#footer {
+    background: $body-bg;
+    color: $body-color;
+}
+
+.footer {
+    &__navigation {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 0;
+
+        .logo {
+            padding-right: 20px;
+        }
+    }
+
+    &__nav {
+        flex-shrink: 0;
+
+        h3 {
+            margin-bottom: 20px;
+        }
+
+        & + & {
+            margin-left: 20px;
+        }
+
+        ul {
+            @extend %listreset;
+
+            li {
+                margin-bottom: 10px;
+            }
+
+            a {
+                @include animate(opacity);
+                color: inherit;
+                opacity: 0.6;
+                text-decoration: none;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .footer-two-cols {
+            column-count: 2;
+        }
+    }
+
+    &__bar {
+        background: $charcoal-black;
+        color: $milky-white;
+        padding: 20px 0;
+
+        .copyright {
+            text-align: center;
+            display: block;
+
+            a {
+                color: inherit;
+            }
+        }
+    }
+}

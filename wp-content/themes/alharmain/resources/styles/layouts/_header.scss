@@ -1,0 +1,25 @@
+#header {
+    padding: 10px 0;
+    
+    > .container {
+        display: flex;
+        align-items: center;
+    }
+}
+
+#nav {
+    flex-grow: 1;
+}
+
+.nav {
+    &__main {
+        @extend %listreset;
+        text-align: right;
+        padding-left: 20px;
+
+        li {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}

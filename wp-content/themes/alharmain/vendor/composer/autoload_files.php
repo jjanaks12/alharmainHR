@@ -27,6 +27,7 @@ return array(
     '7b11c4dc42b3b3023073cb14e519683c' => $vendorDir . '/ralouphie/getallheaders/src/getallheaders.php',
     'e39a8b23c42d4e1452234d762b03835a' => $vendorDir . '/ramsey/uuid/src/functions.php',
     '37a3dc5111fe8f707ab4c132ef1dbc62' => $vendorDir . '/guzzlehttp/guzzle/src/functions_include.php',
+    'ac773ca18bc86f9208de2ed8068423eb' => $vendorDir . '/johnbillion/extended-cpts/functions.php',
     '7018e3dbeb54682c59da60bb2ff4f971' => $vendorDir . '/roots/support/helpers.php',
     '1d3e394e13b0f60fc9509fa2e09fa96e' => $vendorDir . '/roots/acorn/src/Roots/helpers.php',
     '343d14c26e6742d3d4650d589923312e' => $vendorDir . '/roots/acorn/src/Roots/globals.php',

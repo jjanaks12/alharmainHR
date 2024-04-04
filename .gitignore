@@ -1,5 +1,7 @@
 # Folders
 node_modules
+plugins
+cache
 
 # Files
 package-lock.json

@@ -47,34 +47,5 @@ export default async (app) => {
    */
   app.wpjson
     .setSettings({
-      background: {
-        backgroundImage: true,
-      },
-      color: {
-        custom: false,
-        customDuotone: false,
-        customGradient: false,
-        defaultDuotone: false,
-        defaultGradients: false,
-        defaultPalette: false,
-        duotone: [],
-      },
-      custom: {
-        spacing: {},
-        typography: {
-          'font-size': {},
-          'line-height': {},
-        },
-      },
-      spacing: {
-        padding: true,
-        units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
-      },
-      typography: {
-        customFontSize: false,
-      },
-    })
-    .useTailwindColors()
-    .useTailwindFontFamily()
-    .useTailwindFontSize();
+    });
 };
