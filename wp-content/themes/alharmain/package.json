@@ -23,8 +23,11 @@
     "@roots/sage": "6.20.0"
   },
   "dependencies": {
+    "@fancyapps/ui": "^5.0.35",
     "@roots/bud-sass": "^6.20.0",
+    "caniuse-lite": "^1.0.30001611",
     "D": "^1.0.0",
-    "swiper": "^11.0.7"
+    "lightbox2": "^2.11.4",
+    "swiper": "^11.0.6"
   }
 }

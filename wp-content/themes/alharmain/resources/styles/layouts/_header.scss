@@ -1,25 +1,286 @@
 #header {
-    padding: 10px 0;
-    
+    padding: 20px 0;
+    position: relative;
+
     > .container {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.logo {
+    color: $secondary;
+
+    h1 {
+        white-space: nowrap;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1;
+        letter-spacing: 0.09em;
+        margin-bottom: 0;
+
+        strong {
+            letter-spacing: normal;
+            color: $primary;
+            font-size: 31px;
+            display: block;
+        }
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
     }
 }
 
 #nav {
-    flex-grow: 1;
+    @include animate(opacity transform visibility);
+    background: $milky-white;
+    max-width: 300px;
+    padding: 20px 0;
+    margin-left: auto;
+    position: absolute;
+    border: 1px solid $secondary;
+    border-right-width: 0;
+    border-radius: 0 0 0 20px;
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 4;
+
+    @include media(">=desktop") {
+        max-width: none;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0 0 60px;
+        border: none;
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        position: static;
+    }
+
+    .nav--active & {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    @include media(">=desktop") {
+        flex-grow: 1;
+    }
 }
 
 .nav {
-    &__main {
+    &__main,
+    &__supports {
         @extend %listreset;
-        text-align: right;
-        padding-left: 20px;
 
-        li {
-            display: inline-block;
-            vertical-align: top;
+        > li {
+            border-bottom: 1px solid rgba($primary, 0.3);
+            position: relative;
+
+            @include media(">=desktop") {
+                display: inline-block;
+                vertical-align: top;
+                border-bottom: none;
+            }
+
+            + li {
+                @include media(">=desktop") {
+                    margin-left: 20px;
+                }
+
+                @include media(">=widescreen") {
+                    margin-left: 40px;
+                }
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            &:hover {
+                > a {
+                    color: $secondary;
+                }
+
+                .sub-menu {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+
+            > a {
+                @include animate(color);
+                color: #373643;
+                text-decoration: none;
+                display: block;
+                padding: 10px 20px;
+                outline: none;
+
+                @include media(">=desktop") {
+                    padding: 0;
+                }
+            }
+
+            &.has--dropdown > a:not(.opener) {
+                padding-right: 35px;
+
+                @include media(">=desktop") {
+                    padding-right: 30px;
+                }
+            }
+
+            &.current_page_ancestor > a,
+            &.current_page_item > a {
+                background: $primary;
+                color: $milky-white;
+                font-weight: 600;
+
+                @include media(">=tablet") {
+                    background: none;
+                    color: $secondary;
+                }
+            }
+
+            > .opener {
+                background: none;
+                color: #373643;
+                text-decoration: none;
+                font-size: 95%;
+                padding: 0;
+                position: absolute;
+                top: 17px;
+                right: 10px;
+
+                @include media(">=desktop") {
+                    top: 4px;
+                }
+            }
+
+            &.dropdown--active .sub-menu {
+                max-height: 500px;
+            }
+        }
+    }
+
+    &__main {
+        margin-bottom: 20px;
+
+        @include media(">=desktop") {
+            margin-bottom: 0;
+        }
+
+        > li > a {
+            @include media("<desktop") {
+                font-size: 140%;
+            }
+        }
+    }
+
+    &__opener {
+        position: relative;
+        outline: none;
+
+        @include media(">=desktop") {
+            display: none !important;
+        }
+
+        .header--fixed & {
+            @include media(">=desktop") {
+                display: block;
+            }
+        }
+
+        span {
+            @include animate(transform);
+            font-size: 150%;
+
+            .nav--active & {
+                transform: rotateZ(90deg);
+            }
+        }
+    }
+}
+
+.sub-menu {
+    @extend %listreset;
+    @include animate(max-height opacity visibility);
+    background: rgba($blue-700, 0.1);
+    max-height: 0;
+    will-change: max-height;
+    overflow: hidden;
+    padding-right: 30px;
+
+    @include media(">=desktop") {
+        background: $blue-700;
+        width: 200px;
+        max-height: none;
+        padding-right: 0;
+        margin-top: 42px;
+        border-radius: 0 0 10px 10px;
+        position: absolute;
+        top: 100%;
+        overflow: visible;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    &::before {
+        height: 44px;
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        left: 0;
+
+        @include media(">=desktop") {
+            content: "";
+        }
+    }
+
+    li {
+        &:first-child {
+            padding-top: 10px;
+        }
+
+        &:last-child {
+            padding-bottom: 10px;
+        }
+    }
+
+    a {
+        @include animate(color);
+        text-decoration: none;
+        color: $blue-700;
+        display: block;
+        padding: 10px 20px;
+        outline: none;
+
+        @include media(">=desktop") {
+            color: $milky-white;
+        }
+
+        &:hover,
+        &:focus {
+            color: $secondary;
+        }
+    }
+
+    .current_page_item > a {
+        background: rgba($blue-700, 0.3);
+        color: $primary;
+        font-weight: 600;
+        border-radius: 0 30px 30px 0;
+
+        @include media(">=tablet") {
+            background: rgba($secondary, 0.3);
+            color: $secondary;
+            border-radius: 0;
         }
     }
 }

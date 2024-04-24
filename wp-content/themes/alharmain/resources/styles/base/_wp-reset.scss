@@ -10,6 +10,8 @@ body {
     min-width: $container-min-width;
     font: #{$font-size-base}/#{$line-height-base} $base-font-family;
     margin: 0;
+
+    --swiper-theme-color: #{$secondary};
 }
 
 h1,
@@ -24,5 +26,36 @@ h5,
 .h5,
 h6,
 .h6 {
+    font-weight: 600;
+    line-height: $line-height-base;
     margin: 0 0 10px;
+}
+
+h1,
+.h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+h2,
+.h2 {
+    font-size: 24px;
+}
+
+h3,
+.h3 {
+    font-size: 18px;
+}
+
+p {
+    margin: 0 0 16px;
+}
+
+img {
+    vertical-align: top;
+    border: none;
+}
+
+strong {
+    font-weight: 600;
 }

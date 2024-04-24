@@ -1,36 +1,41 @@
 $breakpoints: (
-    'xs-phone': 320px,
-    'phone': 480px,
-    'tablet': 768px,
-    'desktop': 992px,
-    'widescreen': 1200px,
-    'largescreen': 1400px
+    "xs-phone": 320px,
+    "phone": 480px,
+    "tablet": 768px,
+    "desktop": 992px,
+    "widescreen": 1200px,
+    "largescreen": 1400px
 );
 
 // keywords
 $media-expressions: (
-    'screen': 'screen',
-    'print': 'print',
-    'handheld': 'handheld',
-    'landscape': '(orientation: landscape)',
-    'portrait': '(orientation: portrait)',
-    'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
-    'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+    "screen": "screen",
+    "print": "print",
+    "handheld": "handheld",
+    "landscape": "(orientation: landscape)",
+    "portrait": "(orientation: portrait)",
+    "retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
+    "retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)"
 );
 
-@import 'vendors/include-media';
-@import 'vendors/normalize';
+@import "vendors/include-media";
+@import "vendors/normalize";
+@import "vendors/icomoon";
 
-@import 'base/variables';
-@import 'base/functions';
-@import 'base/mixins';
-@import 'base/helpers';
-@import 'base/wp-reset';
+@import "base/variables";
+@import "base/functions";
+@import "base/mixins";
+@import "base/helpers";
+@import "base/wp-reset";
 
-@import 'layouts/header';
-@import 'layouts/footer';
-@import 'layouts/common';
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/common";
 
-@import 'vendors/swiper';
+@import "components/button";
+@import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
-@import 'pages/home';
+@import "vendors/swiper";
+
+@import "pages/home";
+@import "pages/about";

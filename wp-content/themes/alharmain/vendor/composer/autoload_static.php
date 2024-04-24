@@ -516,8 +516,13 @@ class ComposerStaticInit38369a1c95737f1ec7e077d68a4a07ad
     );
 
     public static $classMap = array (
+        'App\\Fields\\Demand' => __DIR__ . '/../..' . '/app/Fields/Demand.php',
+        'App\\Fields\\Partner' => __DIR__ . '/../..' . '/app/Fields/Partner.php',
         'App\\Options\\ThemeOptions' => __DIR__ . '/../..' . '/app/Options/ThemeOptions.php',
         'App\\Providers\\ThemeServiceProvider' => __DIR__ . '/../..' . '/app/Providers/ThemeServiceProvider.php',
+        'App\\View\\Components\\Banner' => __DIR__ . '/../..' . '/app/View/Components/Banner.php',
+        'App\\View\\Components\\DemandSlider' => __DIR__ . '/../..' . '/app/View/Components/DemandSlider.php',
+        'App\\View\\Components\\Partner' => __DIR__ . '/../..' . '/app/View/Components/Partner.php',
         'App\\View\\Composers\\App' => __DIR__ . '/../..' . '/app/View/Composers/App.php',
         'App\\View\\Composers\\Comments' => __DIR__ . '/../..' . '/app/View/Composers/Comments.php',
         'App\\View\\Composers\\Footer' => __DIR__ . '/../..' . '/app/View/Composers/Footer.php',

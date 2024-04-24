@@ -25,7 +25,9 @@ class Footer extends Composer
         return [
             'siteEmail' => get_field('Email', 'option'),
             'siteAddress' => get_field('Address', 'option'),
-            'sitePhone' => $this->getPhoneNO()
+            'sitePhone' => $this->getPhoneNO(),
+            'siteLicenceNo' => get_field('Footer_Licence No', 'option'),
+            'siteYear' => date('Y')
         ];
     }
 

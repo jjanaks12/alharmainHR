@@ -1,18 +1,35 @@
-<section class="partner__section">
-    <div class="container">
-        <h2>Partners</h2>
+<div class="container">
+    <section class="partner__section">
+        <h2>We take pride in our reputation as a trusted partner for recruitment solutions.</h2>
+        @if($count > 0)
         <div class="partner__list">
             @foreach($partners as $partner)
             <div class="partner__logo">
-                <a href="{{ $partner['URL'] ? $partner['URL'] : '#' }}" target="_blank">
-                    @if($partner['partner_logo'])
-                    {!!wp_get_attachment_image($partner['partner_logo'], 'full')!!}
+                @if(!$partner['company_url'])
+                <figure title="{{$partner['title']}}">
+                    @if($partner['image'])
+                    {!!wp_get_attachment_image($partner['image'], 'full')!!}
                     @else
-                    <span>{{{$partner['Name']}}}</span>
+                    <span>{{$partner['title']}}</span>
+                    @endif
+                </figure>
+                @else
+                <a href="{{ $partner['company_url'] ? $partner['company_url'] : '#' }}" target="_blank" title="{{$partner['title']}}">
+                    @if($partner['image'])
+                    {!!wp_get_attachment_image($partner['image'], 'full')!!}
+                    @else
+                    <span>{{$partner['title']}}</span>
                     @endif
                 </a>
+                @endif
             </div>
             @endforeach
+            <div class="partner__logo">
+                <a href="{{ home_url('/partners') }}">
+                    <span class="counter">+ {{$count}}</span>
+                </a>
+            </div>
         </div>
-    </div>
-</section>
+        @endif
+    </section>
+</div>

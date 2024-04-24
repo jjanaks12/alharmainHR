@@ -7,3 +7,4 @@ cache
 package-lock.json
 composer.lock
 wp-config.php
+.DS_Store

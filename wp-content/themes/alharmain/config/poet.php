@@ -1,4 +1,5 @@
 <?php
+use Carbon\Carbon;
 
 return [
 
@@ -13,15 +14,54 @@ return [
     */
 
     'post' => [
-        'banner' => [
-            'enter_title_here' => 'Enter banner title',
-            'menu_icon' => 'dashicons-cover-image',
-            'supports' => ['title', 'editor', 'excerpt', 'captions', 'thumbnail'],
+        'demand' => [
+            'enter_title_here' => 'Enter demand title',
+            'menu_icon' => 'dashicons-megaphone',
+            'supports' => ['title', 'excerpt', 'captions', 'thumbnail'],
             'show_in_rest' => true,
-            'has_archive' => false,
+            'has_archive' => true,
             'labels' => [
-                'singular' => 'Banner',
-                'plural' => 'Banners',
+                'singular' => 'Demand',
+                'plural' => 'Demands',
+            ],
+            'admin_cols' => [
+                'featured_image' => [
+                    'title'          => 'Feature Image',
+                    'featured_image' => 'medium',
+                    'height'         => 40,
+                ],
+                'country' => [
+                    'title'       => 'Country',
+                    'taxonomy'    => 'country'
+                ],
+                'expires_on' => [
+                    'title' => "Expires on",
+                    "function" => function () {
+                        $expiration = get_field('Expiration');
+                        $today = Carbon::now();
+                        $expirationDate = Carbon::createFromFormat('d/m/Y', $expiration);
+                        // $daysLeft = floor((strtotime($expirationDate) - strtotime("now")) / (60 * 60 * 24));
+                        $daysLeft = $today->diffInDays($expirationDate, false);
+                        $puncuation = $daysLeft == 1 ? '' : 's';
+
+                        if ($daysLeft > 0)
+                            echo "$expiration, ($daysLeft day$puncuation left)";
+                        else
+                            echo "Expired";
+                    }
+                ]
+            ],
+            'taxonomies' => ['country']
+        ],
+        'partner' => [
+            'enter_title_here' => 'Enter partner title',
+            'menu_icon' => 'dashicons-admin-users',
+            'supports' => ['title', 'excerpt', 'captions', 'thumbnail'],
+            'show_in_rest' => true,
+            'has_archive' => true,
+            'labels' => [
+                'singular' => 'Partner',
+                'plural' => 'Partners',
             ],
             'admin_cols' => [
                 'featured_image' => [
@@ -53,6 +93,15 @@ return [
             'links' => [],
             'meta_box' => 'radio',
         ],
+        'country' => [
+            'links' => [],
+            'show_ui' => false,
+            'meta_box' => 'radio',
+            'labels' => [
+                'singular' => 'Country',
+                'plural' => 'Countries'
+            ]
+        ]
     ],
 
     /*

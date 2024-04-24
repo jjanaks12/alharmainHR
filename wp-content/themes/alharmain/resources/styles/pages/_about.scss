@@ -1,0 +1,221 @@
+@use "sass:math";
+
+.hero__banner {
+    background: #424589;
+    color: $milky-white;
+    position: relative;
+    z-index: 1;
+
+    @include media(">=desktop") {
+        display: flex;
+    }
+
+    &__content {
+        padding: 40px 15px 90px;
+
+        @include media(">=desktop") {
+            flex-grow: 1;
+            align-self: center;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        em {
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-weight: 600;
+            font-style: normal;
+            display: block;
+        }
+
+        .holder {
+            @include media(">=desktop") {
+                max-width: math.div($container-max-width, 2);
+                padding: 100px 70px 182px 15px;
+                margin-left: auto;
+            }
+        }
+    }
+
+    &__image {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+
+        @include media(">=desktop") {
+            flex: 50% 0 0;
+            position: static;
+        }
+
+        &::before {
+            content: "";
+            background: rgba($charcoal-black, 0.7);
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+
+            @include media(">=desktop") {
+                display: none;
+            }
+        }
+
+        img {
+            @include size(100%);
+            object-fit: cover;
+        }
+    }
+}
+
+.company__responsibility {
+    &__section {
+        @extend .container !optional;
+        background: $green-100;
+        padding-bottom: 40px;
+        margin-top: -51px;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        
+        @include media('<#{$container-max-width}') {
+            margin: -51px 15px 0;
+        }
+    }
+
+    &__header {
+        background: $milky-white;
+        text-align: center;
+        padding: 15px;
+        margin: 0 calc(#{$grid-gutter-width} / 2 * -1);
+
+        h2 {
+            text-transform: uppercase;
+            color: $secondary;
+            letter-spacing: 0.04em;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__body {
+        padding-top: 40px;
+
+        .check__list {
+            column-gap: 30px;
+
+            @include media(">=tablet") {
+                column-count: 2;
+            }
+
+            @include media(">=desktop") {
+                column-count: 3;
+            }
+        }
+    }
+}
+
+.vision {
+    &__section {
+        @extend .container !optional;
+        text-align: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        h2 {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__image {
+        margin: 0;
+        position: relative;
+        z-index: 1;
+
+        &::before,
+        &::after {
+            background: rgba($secondary, 0.6);
+            content: "";
+            width: 320px;
+            aspect-ratio: 1;
+            animation: pulse 03s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+
+            @include media(">=tablet") {
+                width: 464px;
+            }
+        }
+
+        &::after {
+            animation-delay: 0.9s;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.info__block {
+    @extend .container !optional;
+
+    @include media(">=tablet") {
+        display: flex;
+        align-items: center;
+    }
+
+    &__image {
+        margin: 0;
+
+        @include media('>=tablet') {
+            flex: 44.5833% 0 0;
+            margin-right: 80px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__text {
+        padding-top: 30px;
+    }
+}
+
+.organization__chart {
+    @extend .container !optional;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @include media('>=tablet') {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    h2 {
+        margin-bottom: 30px;
+    }
+
+    &__image {
+        margin: 0;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}

@@ -38,12 +38,9 @@ class ThemeOptions extends Field
             ->addGroup('Header')
                 ->addImage('logo', ['label' => 'Logo', 'return_format' => 'id'])
             ->endGroup()
-            ->addRepeater('Partners')
-                ->addText('Name')
-                ->addUrl('URL')
-                ->addImage('partner_logo', ['label' => 'Logo', 'return_format' => 'id'])
-            ->endRepeater()
+            ->addFile('company_profile', ['label' => 'Company Profile', 'return_format' => 'id'])
             ->addGroup('Footer')
+                ->addText('Licence No')
             ->endGroup();
 
         return $themeOptions->build();

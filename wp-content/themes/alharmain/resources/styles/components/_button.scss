@@ -1,0 +1,53 @@
+.btn {
+    @include animate(color background box-shadow);
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: top;
+    padding: 18px 30px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    outline: none;
+
+    &--icon {
+        width: 57px;
+        padding: 0;
+        font-size: 120%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1;
+        border-radius: 50%;
+
+        &:hover {
+            box-shadow: 0 0 0 13px rgba($green-300, 0.5);
+        }
+
+        [class^="icon-"],
+        [class*=" icon-"] {
+            line-height: 1;
+        }
+    }
+}
+
+.btn__primary {
+    background: $primary;
+    color: $milky-white;
+}
+
+.btn__secondary {
+    background: $secondary;
+    color: $milky-white;
+
+    &.btn--outline {
+        background: $green-100;
+        color: #171830;
+        border-color: $green-300;
+    }
+}
+
+.btn__default {
+    background: $milky-white;
+    color: $secondary;
+}

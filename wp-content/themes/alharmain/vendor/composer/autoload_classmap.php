@@ -6,8 +6,13 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Fields\\Demand' => $baseDir . '/app/Fields/Demand.php',
+    'App\\Fields\\Partner' => $baseDir . '/app/Fields/Partner.php',
     'App\\Options\\ThemeOptions' => $baseDir . '/app/Options/ThemeOptions.php',
     'App\\Providers\\ThemeServiceProvider' => $baseDir . '/app/Providers/ThemeServiceProvider.php',
+    'App\\View\\Components\\Banner' => $baseDir . '/app/View/Components/Banner.php',
+    'App\\View\\Components\\DemandSlider' => $baseDir . '/app/View/Components/DemandSlider.php',
+    'App\\View\\Components\\Partner' => $baseDir . '/app/View/Components/Partner.php',
     'App\\View\\Composers\\App' => $baseDir . '/app/View/Composers/App.php',
     'App\\View\\Composers\\Comments' => $baseDir . '/app/View/Composers/Comments.php',
     'App\\View\\Composers\\Footer' => $baseDir . '/app/View/Composers/Footer.php',

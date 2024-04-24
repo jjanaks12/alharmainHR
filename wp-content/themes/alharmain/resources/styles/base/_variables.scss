@@ -7,24 +7,37 @@ $gray-400: #3c4950;
 $gray-500: #334047;
 $gray-600: #1c2b33;
 $charcoal-black: #000;
-$blue-100: #00c5e0;
+$blue-100: #ebebef;
+$blue-200: #e1e1e8;
+$blue-300: #c1c0cf;
+$blue-400: #383563;
+$blue-500: #323059;
+$blue-600: #2d2a4f;
+$blue-700: #141323;
 $blue: #0485df;
-$green-100: #e1ece3;
-$green-200: #f0f6f1;
-$green-300: #00c89b;
-$green: #428952;
+$green-100: #e6f3f0;
+$green-200: #d9ece7;
+$green-300: #b0d7cd;
+$green-400: #007d5e;
+$green-500: #007155;
+$green-600: #00644b;
+$green-700: #002c21;
+$green: #008b68;
 $orange: #eb785f;
 
-$body-bg: $gray-600;
+$primary: #171830;
+$secondary: $green;
+
+$body-bg: $primary;
 $body-color: $milky-white;
 
 // Fonts
 $font-size-base: 16px;
-$line-height-base: 1.2;
+$line-height-base: 1.5;
 
 $base-font-sans-serif: Arial, "Helvetica Neue", Helvetica, sans-serif;
 $base-font-serif: "Times New Roman", Times, Baskerville, Georgia, serif;
-$base-font-family: $base-font-sans-serif;
+$base-font-family: Poppins, $base-font-sans-serif;
 
 // Grid
 $grid-gutter-width: 30px;

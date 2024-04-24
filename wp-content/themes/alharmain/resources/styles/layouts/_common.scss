@@ -2,6 +2,7 @@
     background: $body-color;
     color: $body-bg;
     position: relative;
+    overflow: hidden;
 }
 
 .sr-only {
@@ -12,7 +13,7 @@
 
 .container {
     max-width: $container-max-width;
-    padding: 0 ($grid-gutter-width/2);
+    padding: 0 calc(#{$grid-gutter-width} / 2);
     margin: 0 auto;
 }
 
@@ -29,9 +30,96 @@
 
 .breadcrumbs {
     @extend %listreset;
+    font-weight: 700;
 
     li {
         display: inline-block;
         vertical-align: top;
+
+        + li::before {
+            content: "/";
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+    }
+
+    a {
+        @include animate(color);
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: $secondary;
+        }
+    }
+
+    strong {
+        font-weight: 400;
+    }
+}
+
+.subheading {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: $secondary;
+    margin-bottom: 11px;
+}
+
+.check__list {
+    @extend %listreset;
+
+    li {
+        position: relative;
+    }
+}
+
+ul.check__list li {
+    @extend .icon-check !optional;
+    padding-left: 30px;
+
+    &:before {
+        font: 24px/1 icomoon;
+        position: absolute;
+        top: 6px;
+        left: 0;
+    }
+}
+
+ol.check__list {
+    counter-reset: list;
+
+    li {
+        padding-left: 45px;
+        margin-bottom: 15px;
+        counter-increment: list;
+
+        &::before {
+            content: counter(list);
+            @include size(30px);
+            background: $secondary;
+            color: $milky-white;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 6px;
+            left: 0;
+        }
+    }
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
     }
 }
