@@ -25,7 +25,7 @@
   "dependencies": {
     "@fancyapps/ui": "^5.0.35",
     "@roots/bud-sass": "^6.20.0",
-    "caniuse-lite": "^1.0.30001611",
+    "caniuse-lite": "^1.0.30001613",
     "D": "^1.0.0",
     "lightbox2": "^2.11.4",
     "swiper": "^11.0.6"

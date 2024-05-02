@@ -59,3 +59,36 @@ img {
 strong {
     font-weight: 600;
 }
+
+table {
+    color: #5D5C67;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #c4c5da;
+    border-bottom: 1px solid #c4c5da;
+
+    th {
+        background: #f7f7f7;
+        letter-spacing: 0.04em;
+        font-weight: 600;
+
+        span {
+            display: block;
+            font-weight: 400;
+        }
+    }
+
+    tr {
+        td,
+        th {
+            height: 60px;
+            padding: 14px 5px;
+            border-bottom: 1px solid #c4c5da;
+
+            + td,
+            + th {
+                border-left: 1px solid #c4c5da;
+            }
+        }
+    }
+}

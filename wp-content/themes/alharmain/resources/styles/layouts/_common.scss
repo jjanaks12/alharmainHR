@@ -18,13 +18,32 @@
 }
 
 .page-header {
-    background: $gray-600;
+    background: #424589;
     color: $milky-white;
     text-align: center;
     padding: 40px 0;
 
     h1 {
-        font-size: 5rem;
+        font-size: 32px;
+        text-transform: capitalize;
+        margin-bottom: 0;
+    }
+
+    a {
+        @include animate(color);
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            color: $gray-200;
+        }
+    }
+
+    .subtitle {
+        text-transform: uppercase;
+        font-style: normal;
+        letter-spacing: 0.04em;
+        display: block;
     }
 }
 
@@ -112,7 +131,6 @@ ol.check__list {
     }
 }
 
-
 @keyframes pulse {
     0% {
         transform: translate(-50%, -50%) scale(0);
@@ -121,5 +139,12 @@ ol.check__list {
     100% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.comment-form {
+    [type=submit] {
+        @extend .btn;
+        @extend .btn__secondary;
     }
 }

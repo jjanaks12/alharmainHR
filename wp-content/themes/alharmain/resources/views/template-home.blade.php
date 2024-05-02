@@ -107,28 +107,18 @@ Template Name: Home page
             <h2>Welcome to <span>Al-Harmain H.R.</span></h2>
             <a href="{!! wp_get_attachment_url($company_profile) !!}" class="btn btn__secondary" download><span class="icon-download"></span> Company Profile</a>
         </header>
-        {{$test}}
         <div class="team__list">
-            @foreach($test as $profile)
-            <div class="team">
+            @foreach($profils as $profile)
+            <a class="team" href="{{ $profile['link'] }}">
                 <figure class="team__image">
-                    <img src="@asset('/images/home_img_04.png')" alt="image description">
+                    <img src="{{ $profile['image'] }}" alt="image description">
                 </figure>
                 <div class="team__detail">
-                    <h3>{{$profile['name']}}</h3>
+                    <h3>{{ $profile['name'] }}</h3>
                     <em>{{ $profile['designation'] }}</em>
                 </div>
-            </div>
+            </a>
             @endforeach
-            <div class="team">
-                <figure class="team__image">
-                    <img src="@asset('/images/home_img_05.png')" alt="image description">
-                </figure>
-                <div class="team__detail">
-                    <h3>Ms. Sandiva Karki</h3>
-                    <em>Managing Director</em>
-                </div>
-            </div>
         </div>
     </div>
 </section>

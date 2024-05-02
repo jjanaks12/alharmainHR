@@ -369,11 +369,19 @@
 }
 
 .team {
+    @include animate(background box-shadow);
     text-align: center;
+    color: inherit;
+    text-decoration: none;
     padding: 10px;
     margin-bottom: 30px;
     box-shadow: 0 4px 24px 0 rgba($charcoal-black, 0.08);
     border-radius: 4px;
+
+    &:hover {
+        background: darken($milky-white, 5%);
+        box-shadow: none;
+    }
 
     @include media(">=tablet") {
         flex: calc(50% - 30px) 0 0;

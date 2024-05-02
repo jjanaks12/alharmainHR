@@ -51,7 +51,7 @@ return [
                     }
                 ]
             ],
-            'taxonomies' => ['country']
+            'taxonomies' => ['country', 'job_position']
         ],
         'partner' => [
             'enter_title_here' => 'Enter partner title',
@@ -95,11 +95,20 @@ return [
         ],
         'country' => [
             'links' => [],
-            'show_ui' => false,
+            'show_ui' => true,
             'meta_box' => 'radio',
             'labels' => [
                 'singular' => 'Country',
                 'plural' => 'Countries'
+            ]
+            ],
+        'job_position' => [
+            'links' => [],
+            'show_ui' => true,
+            'meta_box' => 'radio',
+            'labels' => [
+                'singular' => 'Job position',
+                'plural' => 'Job Positions'
             ]
         ]
     ],

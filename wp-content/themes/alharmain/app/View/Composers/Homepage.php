@@ -4,7 +4,7 @@ namespace App\View\Composers;
 
 use Roots\Acorn\View\Composer;
 use Roots\Acorn\View\Composers\Concerns\AcfFields;
-use WP_Term_Query;
+use WP_Query;
 
 class Homepage extends Composer
 {
@@ -27,19 +27,8 @@ class Homepage extends Composer
     public function with()
     {
         return [
-            'img02' => asset('/images/home_img_02.png')->uri(),
-            'img03' => asset('/images/home_img_03.png')->uri(),
-            'img04' => asset('/images/home_img_04.png')->uri(),
-            'img05' => asset('/images/home_img_05.png')->uri(),
-            'img06' => asset('/images/home_img_06.png')->uri(),
-            'img07' => asset('/images/home_img_07.png')->uri(),
-            'img08' => asset('/images/home_img_08.png')->uri(),
-            'img09' => asset('/images/home_img_09.png')->uri(),
-            'img11' => asset('/images/home_img_11.png')->uri(),
-            'img12' => asset('/images/home_img_12.png')->uri(),
-            'img13' => asset('/images/home_img_13.png')->uri(),
             'company_profile' => get_field('company_profile', 'option'),
-            'test' => collect($this->getCompanyMessage())
+            'profils' => collect($this->getCompanyMessage())
         ];
     }
 
@@ -48,17 +37,20 @@ class Homepage extends Composer
         $profils = [];
 
         $args = [
-            'taxonomy' =>  'profiling',
-            'hide_empty' => false,
-            'fields' => 'all',
-            'count' => true,
+            'category_name' => 'profiling',
+            'posts_per_page' => 2,
         ];
 
-        $posts  = new WP_Term_Query($args);
-        foreach ($posts->terms as $term) {
+        $posts  = new WP_Query($args);
+        while($posts->have_posts()) {
+            $posts->the_post();
+
             $profils[] = [
-                'name' => $term->title,
-                'designation' => 'Chairman'
+                'title' => get_the_title(),
+                'image' => get_the_post_thumbnail_url(),
+                'designation' => get_field('designation'),
+                'name' => get_field('name'),
+                'link' => get_permalink()
             ];
         }
 

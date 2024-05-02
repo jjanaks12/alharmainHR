@@ -5,6 +5,7 @@ import { registerBlockType } from '@wordpress/blocks'
 
 import { BurgerMenu } from "@scripts/core/BurgerMenu"
 import HomePage from './pages/home'
+import DemandPage from "./pages/demand"
 
 const initLightBox = () => {
   Fancybox.bind("[data-fancybox]")
@@ -77,6 +78,7 @@ domReady(async () => {
   initHasClass()
 
   new HomePage('home')
+  new DemandPage('post-type-archive-demand')
 })
 
 /**
